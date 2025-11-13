@@ -3,6 +3,27 @@ spring:
     name: eureka-server
 server:
   port: 8761
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true          # Services automatisch aus Eureka lesen
+          lower-case-service-id: true
+      routes:
+        - id: customer-service
+          uri: lb://customer-service
+          predicates:
+            - Path=/customers/**
+
+        - id: order-service
+          uri: lb://order-service
+          predicates:
+            - Path=/orders/**
+
+        - id: product-service
+          uri: lb://product-service
+          predicates:
+            - Path=/products/**
 eureka:
   client:
     register-with-eureka: false

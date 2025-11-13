@@ -3,35 +3,46 @@ package com.majeste.customer;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 
 @Slf4j
 @Service
 public record CustomerService(CustomerRepository customerRepository)
 {
 
-  public void registerCustomer(CustomerRegistrationRequest request)
+  public List<Customer> findAll()
   {
-    Customer customer = Customer.builder()
-                                .firstname(request.firstName())
-                                .lastname(request.lastName())
-                                .email(request.email())
-                                .build();
-
-    //todo: check if email is valid
-    //todo: check if email is not taken
-    //todo: check if customer is fraudster
-    customerRepository.save(customer);
-    //todo: send notification
+    return customerRepository.findAll();
   }
 
-  public void loginCustomer(final CustomerLoginRequest customerLoginRequest)
+  public Customer findById(int id)
   {
-    log.info("do Login");
+    return customerRepository.findById(id)
+                             .orElseThrow(() -> new RuntimeException("Customer not found with id " + id));
   }
 
-  public String hello()
+  public Customer createCustomer(Customer customer)
   {
-    log.info("Hello World!");
-    return "Hello World!";
+    // simple Beispiel-Validierung
+    if (customerRepository.existsByEmail(customer.getEmail()))
+    {
+      throw new RuntimeException("Email already used");
+    }
+    return customerRepository.save(customer);
+  }
+
+  public Customer updateCustomer(int id, Customer update)
+  {
+    Customer existing = findById(id);
+    existing.setFirstname(update.getFirstname());
+    existing.setLastname(update.getLastname());
+    existing.setEmail(update.getEmail());
+    return customerRepository.save(existing);
+  }
+
+  public void deleteCustomer(int id)
+  {
+    customerRepository.deleteById(id);
   }
 }
