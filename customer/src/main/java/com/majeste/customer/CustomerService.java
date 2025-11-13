@@ -3,6 +3,7 @@ package com.majeste.customer;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+
 @Slf4j
 @Service
 public record CustomerService(CustomerRepository customerRepository)
@@ -26,5 +27,11 @@ public record CustomerService(CustomerRepository customerRepository)
   public void loginCustomer(final CustomerLoginRequest customerLoginRequest)
   {
     log.info("do Login");
+  }
+
+  public String hello()
+  {
+    log.info("Hello World!");
+    return "Hello World!";
   }
 }

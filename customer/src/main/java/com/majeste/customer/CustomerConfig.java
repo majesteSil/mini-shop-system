@@ -15,6 +15,6 @@ public class CustomerConfig
     @Bean
     @LoadBalanced
     public NewTopic customerTopic(){
-        return TopicBuilder.name("mindgarden.customer.topic").build();
+        return TopicBuilder.name("customer.topic").build();
     }
  }

@@ -7,7 +7,7 @@ spring:
   datasource:
     username: 'mindgarden'
     password: 'password'
-    url: jdbc:postgresql://localhost:5432/fraud
+    url: jdbc:postgresql://localhost:5432/customers
   jpa:
     properties:
       hibernate:

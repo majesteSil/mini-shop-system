@@ -1,16 +1,16 @@
-package com.majeste.customer;
+package com.majeste.product;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.SequenceGenerator;
-import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.math.BigDecimal;
 
 
 @Data
@@ -18,25 +18,20 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "customers")
-public class Customer
+public class Product
 {
 
   @Id
   @SequenceGenerator(name = "customer_id_sequence", sequenceName = "customer_id_sequence")
   @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "customer_id_sequence")
-  private Integer id;
+  private Long id;
 
-  @Column(nullable = false, length = 255)
-  private String firstname;
+  private String name;
 
-  @Column(nullable = false, length = 255)
-  private String lastname;
+  private String description;
 
-  @Column(nullable = false, length = 255)
-  private String email;
+  private BigDecimal price;
+
+  private Integer quantity;
 
 }
-
-
-
