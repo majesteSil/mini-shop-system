@@ -1,4 +1,4 @@
-package com.mindgarden.customer;
+package com.majeste.customer;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

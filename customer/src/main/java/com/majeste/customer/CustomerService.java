@@ -1,4 +1,4 @@
-package com.mindgarden.customer;
+package com.majeste.customer;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

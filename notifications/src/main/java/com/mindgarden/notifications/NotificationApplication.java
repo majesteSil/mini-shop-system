@@ -1,4 +1,4 @@
-package com.mindgarden.notifications;
+package com.majeste.notifications;
 
 
 import org.springframework.boot.SpringApplication;

@@ -1,4 +1,4 @@
-package com.mindgarden.customer;
+package com.majeste.customer;
 
 import junit.framework.Test;
 import junit.framework.TestCase;

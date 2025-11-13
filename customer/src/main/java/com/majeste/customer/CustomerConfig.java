@@ -1,4 +1,4 @@
-package com.mindgarden.customer;
+package com.majeste.customer;
 
 import org.apache.kafka.clients.admin.NewTopic;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;

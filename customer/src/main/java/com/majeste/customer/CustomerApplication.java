@@ -1,15 +1,15 @@
-package com.mindgarden.fraud;
+package com.majeste.customer;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-
 @SpringBootApplication
-public class FraudApplication
+public class CustomerApplication
 {
 
   public static void main(String[] args)
+
   {
-    SpringApplication.run(FraudApplication.class, args);
+    SpringApplication.run(CustomerApplication.class, args);
   }
 }
